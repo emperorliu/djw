@@ -11,6 +11,15 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery-tablesorter
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-sprockets
+
+$(document).ready(function() 
+    { 
+        $(".table").tablesorter(); 
+    } 
+);

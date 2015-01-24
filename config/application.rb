@@ -2,9 +2,12 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
+RSpotify::authenticate("d3c5554fbc6d4c8fa7c8f1e447af3fc3", "77296273a94446f6ad96e89cb65ca490")
 
 module Dj
   class Application < Rails::Application

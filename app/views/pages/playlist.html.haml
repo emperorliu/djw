@@ -1,0 +1,21 @@
+%h1
+  = @playlist.name
+
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th{"data-field" => "id"} #
+      %th{"data-field" => "track"} Track
+      %th{"data-field" => "artist"} Artist
+      %th{"data-field" => "length"} Length
+      %th{"data-field" => "bpm" } BPM
+      %th{"data-field" => "key"} Key
+      %th{"data-field" => "energy"} Energy
+      %th{"data-field" => "dance"} Dance
+  %tbody
+    - @playlist.tracks.each_with_index do |track, i|
+      %tr
+        %td= (i+1)
+        %td= track.name
+        %td= track.artists.first.name
+        %td= milliseconds(track.duration_ms)

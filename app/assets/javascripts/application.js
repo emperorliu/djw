@@ -13,13 +13,16 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require jquery-tablesorter
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
 
-$(document).ready(function() 
-    { 
-        $(".table").tablesorter(); 
-    } 
+$(document).ready(function()
+  {
+    $(".table").tablesorter({
+      theme: 'default',
+      headerTemplate: '{content} {icon}',
+      widgets : [ "uitheme", "filter", "zebra" ]
+    });
+  } 
 );

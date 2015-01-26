@@ -19,3 +19,8 @@
         %td= track.name
         %td= track.artists.first.name
         %td= milliseconds(track.duration_ms)
+        %td= @profile[i].audio_summary.tempo.round
+        %td= @profile[i].audio_summary.key
+        %td= percent(@profile[i].audio_summary.energy)
+        %td= percent(@profile[i].audio_summary.danceability)
+

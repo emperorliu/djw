@@ -60,6 +60,10 @@ GEM
     database_cleaner (1.2.0)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
+    echowrap (0.1.4)
+      faraday (~> 0.9)
+      multi_json (~> 1.0)
+      simple_oauth (~> 0.2)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.2)
@@ -81,8 +85,6 @@ GEM
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-tablesorter (1.13.4)
-      railties (>= 3.1, < 5)
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
@@ -178,6 +180,7 @@ GEM
       sprockets-rails (~> 2.0)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
+    simple_oauth (0.3.1)
     slop (3.6.0)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -220,11 +223,11 @@ DEPENDENCIES
   capybara
   coffee-rails
   database_cleaner (= 1.2.0)
+  echowrap
   fabrication
   faker
   haml-rails
   jquery-rails
-  jquery-tablesorter
   jquery-turbolinks
   launchy
   pg

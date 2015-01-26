@@ -19,8 +19,7 @@
         %td= track.name
         %td= track.artists.first.name
         %td= milliseconds(track.duration_ms)
-        %td= @profile[i].audio_summary.tempo.round
-        %td= @profile[i].audio_summary.key
-        %td= percent(@profile[i].audio_summary.energy)
-        %td= percent(@profile[i].audio_summary.danceability)
-
+        %td= @profile[i].audio_summary.tempo.round unless @profile[i].attrs == nil
+        %td= harmonic_mixing((@profile[i].audio_summary.key.to_s) + mode(@profile[i].audio_summary.mode)) unless @profile[i].attrs == nil
+        %td= percent(@profile[i].audio_summary.energy) unless @profile[i].attrs == nil
+        %td= percent(@profile[i].audio_summary.danceability) unless @profile[i].attrs == nil

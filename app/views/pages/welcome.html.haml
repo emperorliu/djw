@@ -1,8 +1,15 @@
-%h1
-  Here's a list of all your playlists:
+%div#header
+  %div#header-content
+    %span.navbar-title
+      =image_tag "favicon.png", width: '90'
+      %h2 DJ Suite for Spotify
 
-%p
-  - current_user.playlists.each do |playlist|
-    %span{:id => "playlist_#{playlist.id}"}
-    = link_to playlist.name, playlist_path(playlist.id)
-    %br
+%div.jumbotron
+  %div.container
+    %h2
+      Pick a playlist!
+    %p
+      - current_user.playlists.each do |playlist|
+        %span{:id => "playlist_#{playlist.id}"}
+        = link_to playlist.name, playlist_path(playlist.id)
+        %br

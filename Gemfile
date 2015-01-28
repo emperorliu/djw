@@ -18,6 +18,7 @@ gem 'faker'
 gem 'turbolinks'
 gem 'rspotify'
 gem 'echowrap'
+gem 'figaro'
 
 group :development do
   gem 'thin'

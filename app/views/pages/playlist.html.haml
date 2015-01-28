@@ -19,14 +19,14 @@
         %thead
           %tr
             %th.filter-false{"data-field" => "id"} #
-            %th{"data-field" => "track"} Track
-            %th{"data-field" => "artist"} Artist
-            %th{"data-field" => "length"} Length
-            %th{"data-field" => "bpm" } BPM
-            %th{"data-field" => "key"} Key
-            %th{"data-field" => "energy"} Energy
-            %th{"data-field" => "dance"} Dance
-            %th{"data-field" => "popularity"} Popularity
+            %th{"data-field" => "track", "data-placeholder" => "Filter"} Track
+            %th{"data-field" => "artist", "data-placeholder" => "Filter"} Artist
+            %th{"data-field" => "length", "data-placeholder" => "Filter"} Length
+            %th{"data-field" => "bpm", "data-placeholder" => "Filter"} BPM
+            %th{"data-field" => "key", "data-placeholder" => "Filter"} Key
+            %th{"data-field" => "energy", "data-placeholder" => "Filter"} Energy
+            %th{"data-field" => "dance", "data-placeholder" => "Filter"} Dance
+            %th{"data-field" => "popularity", "data-placeholder" => "Filter"} Popularity
         %tbody
           - @playlist.tracks.each_with_index do |track, i|
             %tr
@@ -40,9 +40,8 @@
               %td= percent(@profile[i].audio_summary.danceability) unless @profile[i] == nil
               %td= percent(@profile[i].song_hotttnesss) unless @profile[i] == nil
       %br
-      %div.brighten
-        =image_tag "create-playlist-green.png", width: '300'
-
+        %div.brighten
+          = image_tag "create-playlist-green.png", width: '250'
 #footer
   .container
     %p

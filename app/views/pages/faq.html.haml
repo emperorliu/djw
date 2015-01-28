@@ -1,0 +1,74 @@
+%div#header
+  %div#header-content
+    %span.navbar-title
+      =image_tag "favicon.png", width: '90'
+      %h2 DJ Suite for Spotify
+
+%div.faq.container
+  %br
+    %span.arrow
+      %a{:href => "javascript:javascript:history.go(-1)"} < Back
+  %h2
+    %p How to Use:
+  %p 
+    1. 
+    %b Sort 
+    the playlist by clicking on the column headings in the playlist table.
+  %p 
+    2. 
+    %b Filter 
+    the playlist by typing in the white boxes on top of the columns.
+  %p 
+    3. 
+    %b Save 
+    the sorted playlist to your Spotify.
+  %br
+  %h2
+    %p Legend:
+  %p
+    1.
+    %b Beats Per Minute (BPM): 
+    The tempo of the song.
+  %p
+    2.
+    %b Key:
+    The key of the song. See below for mixing tips.
+  %p
+    3.
+    %b Energy:
+    The energy of a song - the higher the value, the more energetic the song.
+  %p
+    4.
+    %b Danceability:
+    The higher the value, the easier it is to groove to this song!
+  %p
+    5. 
+    %b Popularity:
+    The higher the value, the more popular the song is.
+  %br
+  %h2
+    %p Mixing Tips:
+  %p
+    The Camelot wheel is a visual representation of which keys are compatible with each other. Each key is assigned a keycode number from one to twelve, like hours around a clock.
+  %p
+    = image_tag "harmonic.png", width: "350"
+  %p
+    For the first mix, we recommend mixing two songs that have the same keycode, like 8A and 8A. It will sound like a professional mash-up made in the studio, even if you are mixing on the live DJ equipment.
+  %p
+    Many professional DJs move around the Camelot wheel with every mix.
+  %p
+    To select a compatible song, choose a keycode within one "hour" of your current keycode. If you are in 8A, you can play 7A, 8A, or 9A, next. This mix will be smooth every time.
+  %p
+    You can also mix between inner and outer wheels if you stay in the same "hour." For example, try mixing from 8A to 8B, and notice the change in melody as you go from minor to major.
+  %p
+    Happy mixing! :)
+
+#footer
+  .container
+    %p
+      Powered by
+      = link_to "Spotify", "http://www.spotify.com", :target => "_blank"
+      and
+      = link_to "The Echo Nest.", "http://the.echonest.com", :target => "_blank"
+      Created by
+      = link_to "Jeff Liu.", "http://last.fm/user/emperorliu", :target => "_blank"

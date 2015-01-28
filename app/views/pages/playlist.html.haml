@@ -3,6 +3,9 @@
     %span.navbar-title
       =image_tag "favicon.png", width: '90'
       %h2 DJ Suite for Spotify
+      %span{ :style => "float: right; font-size: 18px" }
+        = link_to "FAQ", faq_path
+
 
 %br
   %div.container  
@@ -10,6 +13,8 @@
       = link_to @playlist.name, @playlist.external_urls["spotify"], :target => "_blank"
 
     %br
+      %span.arrow{ :style => "float: left; font-size: 20px"}
+        %a{:href => "javascript:javascript:history.go(-1)"} <<
       %table.table.table-striped.table-bordered
         %thead
           %tr
@@ -21,6 +26,7 @@
             %th{"data-field" => "key"} Key
             %th{"data-field" => "energy"} Energy
             %th{"data-field" => "dance"} Dance
+            %th{"data-field" => "popularity"} Popularity
         %tbody
           - @playlist.tracks.each_with_index do |track, i|
             %tr
@@ -28,7 +34,21 @@
               %td= track.name
               %td= track.artists.first.name
               %td= milliseconds(track.duration_ms)
-              %td= @profile[i].audio_summary.tempo.round unless @profile[i].attrs == nil
-              %td= harmonic_mixing((@profile[i].audio_summary.key.to_s) + mode(@profile[i].audio_summary.mode)) unless @profile[i].attrs == nil
-              %td= percent(@profile[i].audio_summary.energy) unless @profile[i].attrs == nil
-              %td= percent(@profile[i].audio_summary.danceability) unless @profile[i].attrs == nil
+              %td= @profile[i].audio_summary.tempo.round unless @profile[i] == nil
+              %td= harmonic_mixing((@profile[i].audio_summary.key.to_s) + mode(@profile[i].audio_summary.mode)) unless @profile[i] == nil
+              %td= percent(@profile[i].audio_summary.energy) unless @profile[i] == nil
+              %td= percent(@profile[i].audio_summary.danceability) unless @profile[i] == nil
+              %td= percent(@profile[i].song_hotttnesss) unless @profile[i] == nil
+      %br
+      %div.brighten
+        =image_tag "create-playlist-green.png", width: '300'
+
+#footer
+  .container
+    %p
+      Powered by
+      = link_to "Spotify", "http://www.spotify.com", :target => "_blank"
+      and
+      = link_to "The Echo Nest.", "http://the.echonest.com", :target => "_blank"
+      Created by
+      = link_to "Jeff Liu.", "http://last.fm/user/emperorliu", :target => "_blank"

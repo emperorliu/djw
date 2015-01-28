@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get '/auth/spotify/callback', to: 'users#spotify'
   get '/welcome', to: 'pages#welcome'
   get '/playlist/:id', to: 'pages#playlist', as: :playlist
+  get '/faq', to: 'pages#faq'
 end

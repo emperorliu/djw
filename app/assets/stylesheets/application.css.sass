@@ -17,6 +17,9 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
+body
+  background-color: #eeeeee
+
 a
   color: #81b900
 
@@ -26,6 +29,9 @@ div.container
 
 h2
   display: inline-block
+
+h5
+  font-size: 14px
 
 div#header
   background-color: black
@@ -52,3 +58,19 @@ span.navbar-title
 div#header-content
   margin: 10px
 
+div.brighten img
+  -webkit-filter: brightness(100%)
+  -webkit-transition: all 0s ease
+  -moz-transition: all 0s ease
+  -o-transition: all 0s ease
+  -ms-transition: all 0s ease
+  transition: all 0s ease
+  &:hover
+    -webkit-filter: brightness(120%)
+
+div.faq
+  font-weight: 200
+  width: 50%
+
+span.bold
+  font-weight: bold

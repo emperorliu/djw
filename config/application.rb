@@ -7,7 +7,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-RSpotify::authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
+RSpotify::authenticate("d3c5554fbc6d4c8fa7c8f1e447af3fc3", "77296273a94446f6ad96e89cb65ca490")
 
 module Dj
   class Application < Rails::Application

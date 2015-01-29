@@ -17,12 +17,19 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
+body
+  padding-bottom: 70px
+
 body.home
-  background-image: image-url("cityscape.jpg")
+  background-image: image-url("Robot-Djs.jpg")
   background-repeat: no-repeat
   background-attachment: fixed
-  background-position: top left
-  color: #FFFFFF
+  background-position: center
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+  font-family: 'Exo 2', sans-serif
 
 div.jumbotron
   background-color: transparent
@@ -30,9 +37,6 @@ div.jumbotron
 body
   background-color: #eeeeee
   height: 100%
-
-h1
-  font-family: 'Audiowide'
 
 a
   color: #81b900

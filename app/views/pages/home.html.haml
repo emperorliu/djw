@@ -1,9 +1,19 @@
 %body.home
   %div.jumbotron 
-    %div.container
+    %div.container{ :style => "text-align: left;"}
       %h1 DJ Suite for Spotify
       %p
         Get detailed track information for your music!
       %p
         %div.brighten
           = link_to( image_tag("log_in-desktop-large.png"), "/auth/spotify")
+
+#footer.navbar.navbar-fixed-bottom
+  .container
+    %p
+      Powered by
+      = link_to "Spotify", "http://www.spotify.com", :target => "_blank"
+      and
+      = link_to "The Echo Nest.", "http://the.echonest.com", :target => "_blank"
+      Created by
+      = link_to "Jeff Liu.", "http://last.fm/user/emperorliu", :target => "_blank"

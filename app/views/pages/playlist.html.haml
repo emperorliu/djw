@@ -28,20 +28,21 @@
             %th{"data-field" => "dance", "data-placeholder" => "Filter"} Dance
             %th{"data-field" => "popularity", "data-placeholder" => "Filter"} Popularity
         %tbody
-          - @playlist.tracks.each_with_index do |track, i|
+          - @profile.each_with_index do |track, i|
             %tr
               %td= (i+1)
-              %td= track.name
-              %td= track.artists.first.name
-              %td= milliseconds(track.duration_ms)
-              %td= @profile[i].audio_summary.tempo.round unless @profile[i] == nil
-              %td= harmonic_mixing((@profile[i].audio_summary.key.to_s) + mode(@profile[i].audio_summary.mode)) unless @profile[i] == nil
-              %td= percent(@profile[i].audio_summary.energy) unless @profile[i] == nil
-              %td= percent(@profile[i].audio_summary.danceability) unless @profile[i] == nil
-              %td= percent(@profile[i].song_hotttnesss) unless @profile[i] == nil
+              %td= @track_info[i][1]
+              %td= @track_info[i][2]
+              %td= seconds(track.audio_summary.duration) unless track == nil
+              %td= track.audio_summary.tempo.round unless track == nil
+              %td= harmonic_mixing((track.audio_summary.key.to_s) + mode(track.audio_summary.mode)) unless track == nil
+              %td= percent(track.audio_summary.energy) unless track == nil
+              %td= percent(track.audio_summary.danceability) unless track == nil
+              %td= percent(track.song_hotttnesss) unless track == nil
       %br
         %div.brighten
           = image_tag "create-playlist-green.png", width: '250'
+
 #footer
   .container
     %p

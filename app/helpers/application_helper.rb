@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def seconds(time)
+  def minutes(time)
     Time.at(time).strftime("%M:%S")
   end
 

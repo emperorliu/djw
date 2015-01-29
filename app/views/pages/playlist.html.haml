@@ -33,7 +33,7 @@
               %td= (i+1)
               %td= @track_info[i][1]
               %td= @track_info[i][2]
-              %td= seconds(track.audio_summary.duration) unless track == nil
+              %td= minutes(track.audio_summary.duration) unless track == nil
               %td= track.audio_summary.tempo.round unless track == nil
               %td= harmonic_mixing((track.audio_summary.key.to_s) + mode(track.audio_summary.mode)) unless track == nil
               %td= percent(track.audio_summary.energy) unless track == nil

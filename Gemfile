@@ -19,6 +19,7 @@ gem 'turbolinks'
 gem 'rspotify'
 gem 'echowrap'
 gem 'figaro'
+gem 'gon'
 
 group :development do
   gem 'thin'

@@ -15,23 +15,22 @@ $(function() {
         Authorization: "Bearer " + gon.access_token
       },
       success: function(data) {
-        console.log(data);
-      },
-      error: function(data) {
-        console.log(data);
-      }
-    });
-
-    $.ajax({
-      url: "https://api.spotify.com/v1/users/" + gon.username + "/playlists/" + gon.playlist + "/tracks",
-      method: 'POST',
-      data: JSON.stringify({uris: ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"]}),
-      contentType: 'application/json',
-      dataType: 'json',
-      headers: {
-        Authorization: "Bearer " + gon.access_token
-      },
-      success: function(data) {
+        $.ajax({
+          url: "https://api.spotify.com/v1/users/" + gon.username + "/playlists/" + data.id + "/tracks",
+          method: 'POST',
+          data: JSON.stringify({uris: ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"]}),
+          contentType: 'application/json',
+          dataType: 'json',
+          headers: {
+            Authorization: "Bearer " + gon.access_token
+          },
+          success: function(data) {
+            console.log(data);
+          },
+          error: function(data) {
+            console.log(data);
+          }
+        });
         console.log(data);
       },
       error: function(data) {

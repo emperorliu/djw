@@ -24,11 +24,11 @@ $(function() {
         Authorization: "Bearer " + gon.access_token
       },
       success: function(data) {
-        var playlist_ids_array = getIds();
+        var song_uris_array = getIds();
         $.ajax({
           url: "https://api.spotify.com/v1/users/" + gon.username + "/playlists/" + data.id + "/tracks",
           method: 'POST',
-          data: JSON.stringify({uris: playlist_ids_array}),
+          data: JSON.stringify({uris: song_uris_array}),
           contentType: 'application/json',
           dataType: 'json',
           headers: {

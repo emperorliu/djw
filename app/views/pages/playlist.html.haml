@@ -18,15 +18,15 @@
       %table.table.table-striped.table-bordered#table
         %thead
           %tr
-            %th.filter-false{"data-field" => "id"} #
-            %th{"data-field" => "track", "data-placeholder" => "Filter"} Track
-            %th{"data-field" => "artist", "data-placeholder" => "Filter"} Artist
-            %th{"data-field" => "length", "data-placeholder" => "Filter"} Length
-            %th{"data-field" => "bpm", "data-placeholder" => "Filter"} BPM
-            %th{"data-field" => "key", "data-placeholder" => "Filter"} Key
-            %th{"data-field" => "energy", "data-placeholder" => "Filter"} Energy
-            %th{"data-field" => "dance", "data-placeholder" => "Filter"} Dance
-            %th{"data-field" => "popularity", "data-placeholder" => "Filter"} Popularity
+            %th.filter-false #
+            %th{"data-placeholder" => "Filter"} Track
+            %th{"data-placeholder" => "Filter"} Artist
+            %th{"data-placeholder" => "Filter"} Length
+            %th{"data-placeholder" => "Filter"} BPM
+            %th{"data-placeholder" => "Filter"} Key
+            %th{"data-placeholder" => "Filter"} Energy
+            %th{"data-placeholder" => "Filter"} Dance
+            %th{"data-placeholder" => "Filter"} Popularity
         %tbody
           - @profile.each_with_index do |track, i|
             %tr{"data-id" => @track_info[i][0]}

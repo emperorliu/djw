@@ -15,7 +15,7 @@
     %br
       %span.arrow{ :style => "float: left; font-size: 20px"}
         %a{:href => "javascript:javascript:history.go(-1)"} <<
-      %table.table.table-striped.table-bordered
+      %table.table.table-striped.table-bordered#table
         %thead
           %tr
             %th.filter-false{"data-field" => "id"} #
@@ -29,7 +29,7 @@
             %th{"data-field" => "popularity", "data-placeholder" => "Filter"} Popularity
         %tbody
           - @profile.each_with_index do |track, i|
-            %tr
+            %tr{"data-id" => @track_info[i][0]}
               %td= (i+1)
               %td= @track_info[i][1]
               %td= @track_info[i][2]

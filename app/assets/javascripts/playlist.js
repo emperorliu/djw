@@ -1,3 +1,12 @@
+function getIds() {
+    var results = []
+    var table = $('tbody tr').not('.filtered');
+    table.each(function() {
+      results.push($(this).data('id'));
+    });
+    return results;
+  }
+
 $(function() {
   var playlist_create_btn = $('.create_playlist');
 
@@ -15,10 +24,11 @@ $(function() {
         Authorization: "Bearer " + gon.access_token
       },
       success: function(data) {
+        var playlist_ids_array = getIds();
         $.ajax({
           url: "https://api.spotify.com/v1/users/" + gon.username + "/playlists/" + data.id + "/tracks",
           method: 'POST',
-          data: JSON.stringify({uris: ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"]}),
+          data: JSON.stringify({uris: playlist_ids_array}),
           contentType: 'application/json',
           dataType: 'json',
           headers: {
@@ -39,4 +49,3 @@ $(function() {
     });
   })
 });
-

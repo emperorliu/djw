@@ -20,9 +20,20 @@
 body
   padding-bottom: 40px
 
-.selected-color
-  background-color: green
+.tablesorter tr.selected-row td
+  background-color: #81b900
 
+.tablesorter.tablesorter-default tbody > tr.selected-row:hover > td
+  background-color: #81b900
+
+// .tablesorter.tablesorter-default tbody > tr:hover > td
+//   background-color: #d1edbb
+
+.tablesorter.tablesorter-default
+  font: 12px/18px 'Exo 2', sans-serif
+
+.tablesorter.tablesorter-default th, .tablesorter.tablesorter-default thead td
+  font: 12px/18px 'Montserrat', sans-serif
 
 body.home
   background-image: image-url("Robot-Djs.jpg")

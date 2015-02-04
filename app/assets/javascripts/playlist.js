@@ -1,3 +1,8 @@
+$(document).on('click', '.tablesorter td', function() {
+  $('.tablesorter tr.selected-row').removeClass('selected-row');
+  $(this).closest('tr').addClass('selected-row');
+});
+
 function getIds() {
     var results = []
     var table = $('tbody tr').not('.filtered');

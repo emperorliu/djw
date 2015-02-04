@@ -1,6 +1,8 @@
 $(document).on('click', '.tablesorter td', function() {
+  var selected = $(this).closest('tr').hasClass('selected-row');
   $('.tablesorter tr.selected-row').removeClass('selected-row');
-  $(this).closest('tr').addClass('selected-row');
+  if(!selected)
+    $(this).closest('tr').addClass('selected-row');
 });
 
 function getIds() {

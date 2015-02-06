@@ -35,6 +35,44 @@ body
 .tablesorter.tablesorter-default th, .tablesorter.tablesorter-default thead td
   font: 14px/18px 'Montserrat', sans-serif
 
+@mixin centered_dialog($percentage)
+  width: $percentage                  // this line and the next are
+  left: (100% - $percentage) / 2      // basically what we have seen before
+  position: fixed                     // this is to enforce the fixed position
+    
+.dialog
+  padding: 10px 14px
+  position: fixed
+  top: 40px
+  background-color: #daf893
+  box-shadow: 0px 3px 3px #777
+  border-radius: 2px
+  margin-left: auto
+  margin-right: auto
+  z-index: 20
+  opacity: 0.85
+  text-align: center
+  font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-size: 17px
+  &:hover
+    opacity: 1
+    -webkit-transition: .5s
+    -moz-transition: .5s
+    -ms-transition: .5s
+    -o-transition: .5s
+    transition: .5s
+
+  @include centered_dialog(27%)
+
+@media screen and (max-width: 800px)
+  .dialog
+    @include centered_dialog(55%)
+    
+@media screen and (max-width: 500px)
+  .dialog
+    @include centered_dialog(80%)
+        
+
 body.home
   background-image: image-url("Robot-Djs.jpg")
   background-repeat: no-repeat

@@ -25,6 +25,22 @@ $(document).ready(function() {
         return results;
     }
 
+    function showDialog(message, clss) {
+        $('<div class="dialog ' + clss +'" style="display:none;">' +
+                message +
+                '<span class="close-dialog glyphicon glyphicon-remove" style="color:#81b900;">' +
+                '</span>' +
+            '</div>'
+        ).prependTo('body').fadeIn(1000);
+        $('.close-dialog').click(function() {
+            var time = 1500;
+            $(this).parent().fadeOut(time);
+            setTimeout(function(){ 
+                $(this).parent().remove();
+            }, time);
+        });
+    }
+
     $('.create_playlist').click(function(event) {
         event.preventDefault();
         var playlist_name = $('#playlist_name').val();
@@ -54,20 +70,21 @@ $(document).ready(function() {
                         Authorization: "Bearer " + gon.access_token
                     },
                     success: function(data) {
+                        showDialog("Playlist successfully created! ", 'success');
                         console.log(data);
                     },
                     error: function(data) {
+                        showDialog("Error saving playlist, try again. ", 'error');
                         console.log(data);
                     }
                 });
                 console.log(data);
             },
             error: function(data) {
+                showDialog("Error saving playlist, try again. ", 'error');
                 console.log(data);
             }
         });
     });
-
-
 
 });

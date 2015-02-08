@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   end
 
   def welcome
+    @playlists = current_user.playlists(limit: 50, offset: 0).select { |playlist| playlist.total != 0}
   end
 
   def playlist

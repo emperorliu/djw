@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   end
 
   def playlist
+    @access_token = session[:access_token]
     @playlist = RSpotify::Playlist.find(params[:owner], params[:id])
     @track_info = @playlist.tracks.map { |track| [track.uri, track.name, track.artists.first.name, track.preview_url] }
     @track_info.delete_if { |x| x.include? "spotify:track:null" }

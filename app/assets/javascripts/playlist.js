@@ -1,3 +1,28 @@
+function getIds() {
+        var results = []
+        var table = $('tbody tr').not('.filtered');
+        table.each(function() {
+            results.push($(this).data('id'));
+        });
+        return results;
+    }
+
+function showDialog(message, clss) {
+    $('<div class="dialog ' + clss +'" style="display:none;">' +
+            message +
+            '<span class="close-dialog glyphicon glyphicon-remove" style="color:#81b900;">' +
+            '</span>' +
+        '</div>'
+    ).prependTo('body').fadeIn(1000);
+    $('.close-dialog').click(function() {
+        var time = 1500;
+        $(this).parent().fadeOut(time);
+        setTimeout(function(){ 
+            $(this).parent().remove();
+        }, time);
+    });
+}
+
 $(document).ready(function() {
 
     $('#playlist tbody tr').click(function() {
@@ -16,37 +41,14 @@ $(document).ready(function() {
         }
     });
 
-    function getIds() {
-        var results = []
-        var table = $('tbody tr').not('.filtered');
-        table.each(function() {
-            results.push($(this).data('id'));
-        });
-        return results;
-    }
-
-    function showDialog(message, clss) {
-        $('<div class="dialog ' + clss +'" style="display:none;">' +
-                message +
-                '<span class="close-dialog glyphicon glyphicon-remove" style="color:#81b900;">' +
-                '</span>' +
-            '</div>'
-        ).prependTo('body').fadeIn(1000);
-        $('.close-dialog').click(function() {
-            var time = 1500;
-            $(this).parent().fadeOut(time);
-            setTimeout(function(){ 
-                $(this).parent().remove();
-            }, time);
-        });
-    }
-
     $('.create_playlist').click(function(event) {
         event.preventDefault();
         var playlist_name = $('#playlist_name').val();
+        var access_token = $('div.content').data('id');
+        var username = $('div.content').data('username');
         console.log(playlist_name);
         $.ajax({
-            url: "https://api.spotify.com/v1/users/" + gon.username + "/playlists",
+            url: "https://api.spotify.com/v1/users/" + username + "/playlists",
             method: 'POST',
             data: JSON.stringify({
                 name: playlist_name
@@ -54,12 +56,12 @@ $(document).ready(function() {
             contentType: 'application/json',
             dataType: 'json',
             headers: {
-                Authorization: "Bearer " + gon.access_token
+                Authorization: "Bearer " + access_token
             },
             success: function(data) {
                 var song_uris_array = getIds();
                 $.ajax({
-                    url: "https://api.spotify.com/v1/users/" + gon.username + "/playlists/" + data.id + "/tracks",
+                    url: "https://api.spotify.com/v1/users/" + username + "/playlists/" + data.id + "/tracks",
                     method: 'POST',
                     data: JSON.stringify({
                         uris: song_uris_array
@@ -67,7 +69,7 @@ $(document).ready(function() {
                     contentType: 'application/json',
                     dataType: 'json',
                     headers: {
-                        Authorization: "Bearer " + gon.access_token
+                        Authorization: "Bearer " + access_token
                     },
                     success: function(data) {
                         showDialog("Playlist successfully created! ", 'success');

@@ -8,4 +8,9 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= RSpotify::User.find(session[:user_id]) if session[:user_id]
   end
+
+  def authenticate
+    RSpotify::authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
+  end
+
 end

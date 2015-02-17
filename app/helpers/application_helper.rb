@@ -16,6 +16,10 @@ module ApplicationHelper
     end
   end
 
+  def month(date)
+    date.first(4)
+  end
+
   def harmonic_mixing(key)
     if key.include? 'B'
       case key.first

@@ -16,7 +16,7 @@ module ApplicationHelper
     end
   end
 
-  def month(date)
+  def year(date)
     date.first(4)
   end
 

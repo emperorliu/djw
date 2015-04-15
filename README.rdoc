@@ -1,4 +1,4 @@
-== README
+== README _SortMeSilly_
 
 This is my app 'Sort Me Silly' which uses the Spotify and Echonest APIs
 
